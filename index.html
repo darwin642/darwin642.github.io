@@ -1,560 +1,1417 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0c0d0c">
-<meta name="description" content="DARWIN642 — Systems Engineering, IT Infrastructure, Cloud, DevOps and Automation.">
-<title>DARWIN642 — Systems in Practice</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a1019">
+  <meta name="description" content="Kaan Yaşar — Personal portfolio focused on systems, cloud infrastructure, DevOps, automation, and security through hands-on projects.">
 
-<style>
-:root {
-  --bg: #0c0d0c;
-  --surface: #141613;
-  --surface2: #1b1e19;
-  --text: #eeefe8;
-  --muted: #92968a;
-  --line: #30332c;
-  --accent: #c9ff64;
-  --orange: #ff825b;
-  --mono: "Courier New", monospace;
-  --sans: Arial, Helvetica, sans-serif;
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--sans);
-  -webkit-font-smoothing: antialiased;
-}
-a { color: inherit; text-decoration: none; }
-a:hover { color: var(--accent); }
-img { display: block; width: 100%; object-fit: cover; }
-::selection { background: var(--accent); color: #10120c; }
-.wrap { width: min(1160px, calc(100% - 48px)); margin: auto; }
+  <title>Kaan Yaşar | Systems & Infrastructure</title>
 
-header {
-  height: 76px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid var(--line);
-  font: 11px var(--mono);
-}
-.brand { font-weight: bold; font-size: 16px; letter-spacing: -.05em; }
-.brand span { color: var(--accent); }
-nav { display: flex; gap: 25px; color: var(--muted); }
-nav a:hover { color: var(--text); }
+  <style>
+    :root {
+      --bg: #0a1019;
+      --surface: #111d2b;
+      --surface-hover: #17283b;
+      --text: #edf4fc;
+      --muted: #c0cede;
+      --muted-strong: #d0dbea;
+      --line: #304158;
+      --blue: #75dcff;
+      --blue-soft: #b4edff;
+      --accent: #d4ff83;
+      --mono: "Courier New", monospace;
+      --sans: Arial, Helvetica, sans-serif;
+      --max-width: 1180px;
+    }
 
-.hero {
-  padding: 75px 0 65px;
-  display: grid;
-  grid-template-columns: 1.1fr .9fr;
-  gap: 40px;
-  align-items: center;
-}
-.kicker {
-  color: var(--accent);
-  font: 11px var(--mono);
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  margin-bottom: 27px;
-}
-h1 {
-  font-size: clamp(58px, 8.7vw, 112px);
-  letter-spacing: -.085em;
-  line-height: .86;
-  margin: 0;
-}
-h1 .outline {
-  display: block;
-  color: transparent;
-  -webkit-text-stroke: 1px var(--text);
-  margin-top: 10px;
-}
-.hero-copy {
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.9;
-  max-width: 410px;
-  margin: 27px 0;
-}
-.cta {
-  display: inline-flex;
-  gap: 22px;
-  align-items: center;
-  padding: 13px 16px;
-  background: var(--accent);
-  color: #12140e;
-  font: 11px var(--mono);
-  text-transform: uppercase;
-  transition: transform .2s;
-}
-.cta:hover { color: #12140e; transform: translateY(-3px); }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-.hero-visual {
-  position: relative;
-  min-height: 390px;
-  background: var(--surface);
-  overflow: hidden;
-  border: 1px solid var(--line);
-}
-.hero-visual img {
-  position: absolute;
-  inset: 0;
-  height: 100%;
-  opacity: .65;
-  filter: grayscale(35%) brightness(.7);
-}
-.visual-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 25%, #0c0d0cf0 100%);
-}
-.visual-top {
-  position: absolute;
-  top: 17px;
-  left: 18px;
-  right: 18px;
-  display: flex;
-  justify-content: space-between;
-  font: 10px var(--mono);
-}
-.live { color: var(--accent); }
-.visual-bottom { position: absolute; left: 22px; right: 22px; bottom: 22px; }
-.visual-bottom strong { display: block; font-size: 27px; letter-spacing: -.05em; }
-.visual-bottom p { color: #b0b3a8; font: 11px var(--mono); line-height: 1.8; }
-.visual-number { color: var(--accent); font: 10px var(--mono); }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
 
-.marquee {
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
-  flex-wrap: wrap;
-  padding: 17px 0;
-  font: 10px var(--mono);
-  color: var(--muted);
-  text-transform: uppercase;
-}
-.marquee span::before { content: "✳ "; color: var(--accent); }
+    body {
+      background:
+        radial-gradient(ellipse at 78% 5%, #12304b40, transparent 38%),
+        radial-gradient(ellipse at 10% 48%, #152a3b30, transparent 35%),
+        var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.75;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
 
-section { padding: 85px 0; border-bottom: 1px solid var(--line); }
-.section-head {
-  display: grid;
-  grid-template-columns: 160px 1fr;
-  gap: 30px;
-  margin-bottom: 43px;
-}
-.index { color: var(--accent); font: 11px var(--mono); }
-h2 {
-  margin: 0;
-  font-size: clamp(38px, 5.6vw, 67px);
-  line-height: .98;
-  letter-spacing: -.075em;
-}
-.intro {
-  max-width: 530px;
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.9;
-  margin: 19px 0 0;
-}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 50px;
-  padding-left: 190px;
-}
-.about-grid p { font-size: 15px; line-height: 1.9; color: #c0c2b9; margin: 0; }
-.about-grid p + p { margin-top: 16px; }
-.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
-.tags span {
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  color: var(--muted);
-  font: 10px var(--mono);
-}
+    img {
+      display: block;
+      width: 100%;
+    }
 
-.fields { border-top: 1px solid var(--line); }
-.field {
-  display: grid;
-  grid-template-columns: 60px 1fr 30px;
-  gap: 20px;
-  padding: 25px 0;
-  border-bottom: 1px solid var(--line);
-  transition: padding .2s;
-}
-.field:hover { padding-left: 10px; }
-.field-no { color: var(--accent); font: 11px var(--mono); padding-top: 7px; }
-.field h3 { margin: 0 0 9px; font-size: 25px; letter-spacing: -.05em; }
-.field p { margin: 0; max-width: 660px; color: var(--muted); font-size: 13px; line-height: 1.8; }
-.field-arrow { color: var(--accent); text-align: right; font-size: 19px; }
+    a:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 5px;
+    }
 
-.project-grid {
-  display: grid;
-  grid-template-columns: 1.2fr .8fr;
-  gap: 18px;
-}
-.project {
-  min-width: 0;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  transition: border-color .2s, transform .2s;
-}
-.project:hover { border-color: var(--accent); transform: translateY(-4px); }
-.project-image {
-  height: 235px;
-  position: relative;
-  overflow: hidden;
-  background: #1a2017;
-}
-.project-image img {
-  height: 100%;
-  filter: saturate(.65) brightness(.72);
-  transition: transform .4s, filter .4s;
-}
-.project:hover .project-image img { transform: scale(1.035); filter: saturate(.9) brightness(.85); }
-.project-image .image-label {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  font: 10px var(--mono);
-  background: #0c0d0cce;
-  padding: 8px 10px;
-  color: var(--accent);
-}
-.project-content { padding: 22px; }
-.project-meta {
-  display: flex;
-  justify-content: space-between;
-  color: var(--muted);
-  font: 10px var(--mono);
-  margin-bottom: 17px;
-}
-.project h3 { margin: 0 0 10px; font-size: 27px; letter-spacing: -.06em; }
-.project p { color: var(--muted); font-size: 12px; line-height: 1.8; margin: 0 0 21px; }
-.project-link { font: 11px var(--mono); color: var(--accent); }
-.project-small .project-image { height: 170px; }
-.project-small h3 { font-size: 22px; }
-.project-small .project-content { padding: 18px; }
-.project-stack { display: grid; gap: 18px; }
+    ::selection {
+      background: var(--blue);
+      color: #07111c;
+    }
 
-.principle {
-  padding: 70px 0 85px;
-  display: grid;
-  grid-template-columns: 160px 1fr;
-  gap: 30px;
-}
-.principle blockquote {
-  margin: 0;
-  font-size: clamp(35px, 6.4vw, 76px);
-  letter-spacing: -.075em;
-  line-height: 1.04;
-}
-.principle blockquote span { color: var(--accent); }
+    .container {
+      width: min(var(--max-width), calc(100% - 48px));
+      margin-inline: auto;
+    }
 
-.contact { background: var(--surface); padding: 75px 0 30px; }
-.contact-head {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-  align-items: end;
-  margin-bottom: 50px;
-}
-.contact h2 { font-size: clamp(52px, 9vw, 105px); }
-.contact h2 span { color: var(--accent); }
-.contact-copy { max-width: 370px; color: var(--muted); font-size: 13px; line-height: 1.9; }
-.contact-links {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  border-top: 1px solid var(--line);
-}
-.contact-links a {
-  padding: 20px 15px 20px 0;
-  border-bottom: 1px solid var(--line);
-  display: flex;
-  justify-content: space-between;
-  font: 12px var(--mono);
-}
-.contact-links a:hover { color: var(--accent); }
-footer {
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
-  padding-top: 22px;
-  color: var(--muted);
-  font: 10px var(--mono);
-}
+    .mono {
+      font-family: var(--mono);
+    }
 
-@media (max-width: 760px) {
-  .wrap { width: calc(100% - 32px); }
-  header { height: 65px; }
-  nav { gap: 12px; font-size: 10px; }
-  nav a:nth-child(2) { display: none; }
-  .hero { grid-template-columns: 1fr; gap: 35px; padding: 65px 0 50px; }
-  h1 { font-size: clamp(59px, 14vw, 95px); }
-  .hero-visual { min-height: 310px; }
-  section { padding: 65px 0; }
-  .section-head, .principle { grid-template-columns: 1fr; gap: 18px; }
-  .about-grid { padding-left: 0; grid-template-columns: 1fr; gap: 22px; }
-  .field { grid-template-columns: 32px 1fr 20px; gap: 12px; }
-  .field h3 { font-size: 22px; }
-  .project-grid { grid-template-columns: 1fr; }
-  .project-stack { grid-template-columns: 1fr 1fr; }
-  .project-small .project-image { height: 135px; }
-  .project-small .project-content { padding: 13px; }
-  .project-small h3 { font-size: 18px; }
-  .contact-head { flex-direction: column; align-items: start; }
-  .contact-links { grid-template-columns: 1fr 1fr; }
-  footer { flex-direction: column; }
-}
-@media (max-width: 440px) {
-  nav { gap: 9px; font-size: 9px; }
-  .project-stack { grid-template-columns: 1fr; }
-  .project-small .project-image { height: 180px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after { transition: none !important; }
-}
-</style>
+    .blue {
+      color: var(--blue);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--blue);
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      line-height: 1.7;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      flex: 0 0 25px;
+      height: 2px;
+      background: currentColor;
+    }
+
+    .section {
+      padding: 100px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 44px;
+    }
+
+    .section-heading h2 {
+      margin-top: 14px;
+      font-size: clamp(34px, 4.5vw, 52px);
+      font-weight: 700;
+      letter-spacing: -1.8px;
+      line-height: 1.2;
+    }
+
+    .section-heading > p {
+      max-width: 430px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.85;
+    }
+
+    /* Navigation */
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--line);
+      background: #0a1019f5;
+      backdrop-filter: blur(18px);
+    }
+
+    .nav-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      flex-shrink: 0;
+      font-family: var(--mono);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+
+    .brand span,
+    .footer-brand span {
+      color: var(--blue);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    .nav-status {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 12px #c9ff6460;
+    }
+
+    /* Hero */
+
+    .hero {
+      min-height: 680px;
+      display: flex;
+      align-items: center;
+      padding: 90px 0 105px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 64px;
+    }
+
+    .hero .eyebrow {
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      max-width: 700px;
+      font-size: clamp(52px, 7vw, 86px);
+      font-weight: 800;
+      letter-spacing: -4px;
+      line-height: 1.02;
+    }
+
+    .hero h1 .line-two {
+      color: var(--blue);
+    }
+
+    .hero-description {
+      max-width: 520px;
+      margin-top: 27px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.9;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .button {
+      min-height: 49px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px 19px;
+      border: 1px solid var(--line);
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.5;
+      transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      color: #0a1019;
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .button-primary:hover {
+      background: #e4ffb0;
+      border-color: #e4ffb0;
+    }
+
+    .button-secondary {
+      color: var(--text);
+      background: #111d2b;
+    }
+
+    .button-secondary:hover {
+      color: var(--blue);
+      border-color: var(--blue);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 22px;
+      margin-top: 30px;
+      color: var(--muted-strong);
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    .hero-meta span::before {
+      content: "// ";
+      color: var(--blue);
+    }
+
+    .hero-visual {
+      min-width: 0;
+      padding: 13px;
+      border: 1px solid #354d67;
+      background: linear-gradient(145deg, #172b3e, #0c1420 75%);
+      box-shadow: inset 0 0 50px #102d4b35, 0 24px 80px #00000025;
+    }
+
+    .visual-top,
+    .visual-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    .visual-top {
+      padding: 8px 5px 14px;
+    }
+
+    .visual-bottom {
+      padding: 15px 5px 5px;
+    }
+
+    .visual-number,
+    .live {
+      color: var(--blue);
+    }
+
+    .hero-image {
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      filter: saturate(0.85) contrast(1.04);
+    }
+
+    .live::before {
+      content: "";
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      margin-right: 8px;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+
+    /* About */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 75px;
+    }
+
+    .about-label {
+      color: var(--blue);
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+    }
+
+    .about-title {
+      margin-top: 18px;
+      font-size: clamp(34px, 4vw, 50px);
+      letter-spacing: -1.8px;
+      line-height: 1.2;
+    }
+
+    .about-copy p {
+      margin-bottom: 20px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.95;
+    }
+
+    .about-copy strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .principle {
+      margin-top: 30px;
+      padding: 22px 24px;
+      border-left: 3px solid var(--blue);
+      background: linear-gradient(90deg, #14283a85, transparent);
+    }
+
+    .principle p {
+      margin: 0;
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    /* Expertise */
+
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .expertise-card {
+      min-width: 0;
+      padding: 25px 22px;
+      border: 1px solid var(--line);
+      background: #111d2bbd;
+      transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .expertise-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--blue);
+      background: var(--surface-hover);
+    }
+
+    .expertise-number {
+      color: var(--blue);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .expertise-card h3 {
+      margin: 22px 0 12px;
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    .expertise-card > p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .tags span {
+      padding: 5px 9px;
+      border: 1px solid #3a5069;
+      border-radius: 3px;
+      background: #192a3c;
+      color: #d1deec;
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.55;
+      overflow-wrap: anywhere;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .tags span:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+
+    /* Projects */
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .project {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      height: 100%;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, #111d2b, #0d1520);
+      transition:
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      border-color: var(--blue);
+      box-shadow: 0 16px 40px #00000030;
+    }
+
+    .project-image-wrap {
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+      background: var(--surface-hover);
+    }
+
+    .project-image {
+      height: 210px;
+      object-fit: cover;
+      filter: saturate(0.8) brightness(0.88);
+      transition: transform 0.5s ease, filter 0.5s ease;
+    }
+
+    .project:hover .project-image {
+      transform: scale(1.04);
+      filter: saturate(0.95) brightness(1);
+    }
+
+    .project-index {
+      position: absolute;
+      top: 13px;
+      left: 13px;
+      padding: 6px 9px;
+      border: 1px solid #8da4bc70;
+      background: #0a1019ed;
+      color: var(--blue);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .project-content {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: 24px;
+    }
+
+    .project-category {
+      color: var(--blue);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      line-height: 1.7;
+      text-transform: uppercase;
+    }
+
+    .project h3 {
+      margin-top: 10px;
+      font-size: 23px;
+      letter-spacing: -0.4px;
+      line-height: 1.4;
+    }
+
+    .project-content > p {
+      flex: 1;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    .project .tags {
+      margin-top: 22px;
+    }
+
+    .project-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--blue);
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 700;
+      transition: gap 0.2s ease;
+    }
+
+    .project-link:hover {
+      gap: 13px;
+    }
+
+    .project-status {
+      color: var(--muted-strong);
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    /* Approach */
+
+    .approach {
+      padding: 75px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background:
+        radial-gradient(ellipse at 85% 50%, #16405b45, transparent 50%),
+        #0c1420;
+    }
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .approach h2 {
+      margin-top: 18px;
+      font-size: clamp(36px, 4.8vw, 58px);
+      letter-spacing: -2px;
+      line-height: 1.15;
+    }
+
+    .approach h2 span,
+    .contact h2 span {
+      color: var(--blue);
+    }
+
+    .approach-copy {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.95;
+    }
+
+    .approach-copy p + p {
+      margin-top: 18px;
+    }
+
+    /* Contact */
+
+    .contact {
+      padding: 105px 0 95px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.7fr;
+      align-items: end;
+      gap: 60px;
+    }
+
+    .contact h2 {
+      max-width: 700px;
+      margin-top: 18px;
+      font-size: clamp(42px, 6.5vw, 76px);
+      letter-spacing: -3px;
+      line-height: 1.1;
+    }
+
+    .contact-description {
+      max-width: 540px;
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.9;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid var(--line);
+    }
+
+    .contact-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted-strong);
+      font-family: var(--mono);
+      font-size: 14px;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .contact-link:hover {
+      color: var(--blue);
+    }
+
+    .contact-link span:last-child {
+      color: var(--blue);
+    }
+
+    /* Footer */
+
+    footer {
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-inner {
+      min-height: 85px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    .footer-brand {
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .back-top {
+      color: var(--muted-strong);
+      font-weight: 700;
+      transition: color 0.2s ease;
+    }
+
+    .back-top:hover {
+      color: var(--blue);
+    }
+
+    /* Tablet */
+
+    @media (max-width: 1050px) {
+      .nav-status {
+        display: none;
+      }
+
+      .hero-grid {
+        gap: 38px;
+      }
+
+      .hero h1 {
+        letter-spacing: -3px;
+      }
+
+      .expertise-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .project:last-child {
+        grid-column: 1 / -1;
+      }
+
+      .project:last-child .project-image {
+        height: 250px;
+      }
+
+      .about-grid {
+        gap: 45px;
+      }
+    }
+
+    /* Mobile */
+
+    @media (max-width: 760px) {
+      html {
+        scroll-padding-top: 120px;
+      }
+
+      .container {
+        width: min(calc(100% - 36px), var(--max-width));
+      }
+
+      .nav-inner {
+        min-height: auto;
+        padding-top: 15px;
+        padding-bottom: 14px;
+        flex-wrap: wrap;
+        gap: 12px 20px;
+      }
+
+      .brand {
+        font-size: 15px;
+      }
+
+      nav {
+        width: 100%;
+        order: 2;
+      }
+
+      .nav-links {
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 68px 0 78px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero h1 {
+        font-size: clamp(48px, 11vw, 76px);
+        letter-spacing: -2.8px;
+      }
+
+      .hero-description {
+        font-size: 16px;
+      }
+
+      .hero-visual {
+        max-width: 600px;
+      }
+
+      .section {
+        padding: 78px 0;
+      }
+
+      .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
+        margin-bottom: 32px;
+      }
+
+      .section-heading > p {
+        max-width: 580px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .about-title {
+        max-width: 560px;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+
+      .project:last-child {
+        grid-column: auto;
+      }
+
+      .project-image,
+      .project:last-child .project-image {
+        height: 250px;
+      }
+
+      .project-content {
+        padding: 24px;
+      }
+
+      .project h3 {
+        font-size: 24px;
+      }
+
+      .approach-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .contact-grid {
+        gap: 38px;
+      }
+
+      .contact h2 {
+        letter-spacing: -2px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        width: calc(100% - 30px);
+      }
+
+      .eyebrow {
+        font-size: 12px;
+        letter-spacing: 0.5px;
+      }
+
+      .hero h1 {
+        font-size: clamp(43px, 11.5vw, 55px);
+        letter-spacing: -2.5px;
+      }
+
+      .hero-description,
+      .about-copy p,
+      .approach-copy,
+      .contact-description {
+        font-size: 15px;
+      }
+
+      .hero-meta {
+        gap: 10px 16px;
+        font-size: 11px;
+      }
+
+      .hero-actions {
+        gap: 10px;
+      }
+
+      .button {
+        padding-inline: 14px;
+        font-size: 12px;
+      }
+
+      .visual-top,
+      .visual-bottom {
+        font-size: 10px;
+      }
+
+      .expertise-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .expertise-card {
+        padding: 23px;
+      }
+
+      .project-image,
+      .project:last-child .project-image {
+        height: 205px;
+      }
+
+      .project-content {
+        padding: 20px;
+      }
+
+      .project h3 {
+        font-size: 22px;
+      }
+
+      .project-footer {
+        align-items: flex-start;
+      }
+
+      .contact h2 {
+        font-size: clamp(40px, 11vw, 54px);
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        padding: 22px 0;
+        gap: 10px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
-<div class="wrap">
-  <header>
-    <a class="brand" href="#home">DARWIN<span>642</span></a>
-    <nav>
-      <a href="#about">ABOUT</a>
-      <a href="#fields">EXPERTISE</a>
-      <a href="#projects">PROJECTS</a>
-      <a href="#contact">CONTACT ↗</a>
-    </nav>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="#home">KAAN <span>YAŞAR.</span></a>
+
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#expertise">Expertise</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-status">
+  <span style="color: #fff;">Status:</span>
+  <span class="status-dot" aria-hidden="true"></span>
+  OPEN TO OPPORTUNITIES
+</div>
+    </div>
   </header>
 
   <main>
-    <div class="hero" id="home">
-      <div>
-        <div class="kicker">Independent engineering portfolio / 2026</div>
-        <h1>SYSTEMS<br><span class="outline">IN PRACTICE.</span></h1>
-        <p class="hero-copy">
-          Understanding infrastructure from the inside out.
-          Building labs, troubleshooting problems and connecting
-          systems across cloud, networks and software.
-        </p>
-        <a class="cta" href="#projects">Explore my work <span>↘</span></a>
-      </div>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="eyebrow">Independent technologist · Hands-on learner</div>
 
-      <div class="hero-visual">
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1000&q=85" alt="Close-up of a circuit board and electronic components">
-        <div class="visual-overlay"></div>
-        <div class="visual-top">
-          <span>FIG. 001 / SYSTEMS</span>
-          <span class="live">● LAB NOTES</span>
-        </div>
-        <div class="visual-bottom">
-          <div class="visual-number">BUILD / TEST / UNDERSTAND</div>
-          <strong>Curiosity meets infrastructure.</strong>
-          <p>LINUX · NETWORKS · CLOUD · AUTOMATION</p>
-        </div>
-      </div>
-    </div>
+          <h1>
+            SYSTEMS<br>
+            <span class="line-two">IN PRACTICE.</span>
+          </h1>
 
-    <div class="marquee">
-      <span>Systems engineering</span>
-      <span>IT infrastructure</span>
-      <span>Cloud platforms</span>
-      <span>DevOps & automation</span>
-      <span>Security</span>
-    </div>
-
-    <section id="about">
-      <div class="section-head">
-        <div class="index">01 / THE APPROACH</div>
-        <div>
-          <h2>Less guessing.<br>More understanding.</h2>
-          <p class="intro">
-            I learn by building real environments, testing configurations,
-            investigating failures and documenting what I discover.
+          <p class="hero-description">
+            Exploring systems, cloud infrastructure, automation, and security
+            by building practical labs, solving problems, and documenting what
+            I learn along the way.
           </p>
-        </div>
-      </div>
 
-      <div class="about-grid">
-        <div>
-          <p>
-            I'm interested in the technology behind reliable systems:
-            operating systems, identity, networking, cloud infrastructure
-            and the automation that ties them together.
-          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">
+              Explore projects <span aria-hidden="true">↘</span>
+            </a>
+
+            <a class="button button-secondary"
+               href="https://github.com/darwin642"
+               target="_blank"
+               rel="noopener noreferrer">
+              GitHub <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <div class="hero-meta">
+            <span>Systems & Infrastructure</span>
+            <span>Cloud & DevOps</span>
+            <span>Security</span>
+          </div>
         </div>
-        <div>
-          <p>
-            This portfolio brings together personal labs and independent
-            projects. It reflects hands-on learning, experimentation
-            and a continuous effort to improve.
-          </p>
-          <div class="tags">
-            <span>WINDOWS SERVER</span><span>LINUX</span>
-            <span>NETWORKING</span><span>TERRAFORM</span>
-            <span>PYTHON</span><span>DOCKER</span>
+
+        <div class="hero-visual">
+          <div class="visual-top">
+            <span>FIELD NOTES / 001</span>
+            <span class="visual-number">SYS_001</span>
+          </div>
+
+          <img class="hero-image"
+               src="./crt-setup.jpg"
+               alt="Vintage CRT computer with a blue screen"
+               fetchpriority="high">
+
+          <div class="visual-bottom">
+            <span>BUILD / TEST / IMPROVE</span>
+            <span class="live">SYSTEM ONLINE</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="fields">
-      <div class="section-head">
-        <div class="index">02 / EXPERTISE</div>
+    <section class="section" id="about">
+      <div class="container about-grid">
         <div>
-          <h2>Different layers.<br>Connected thinking.</h2>
-          <p class="intro">
-            Practical areas explored through labs, technical exercises
-            and personal projects.
+          <div class="about-label">01 / THE APPROACH</div>
+          <h2 class="about-title">
+            Understand the system.<br>
+            <span class="blue">Solve the problem.</span>
+          </h2>
+        </div>
+
+        <div class="about-copy">
+          <p>
+            I'm focused on understanding how systems work in real environments
+            — from Windows Server and networking to cloud infrastructure,
+            automation, and security.
           </p>
+
+          <p>
+            Rather than relying on theory alone, I build
+            <strong>personal labs and practical projects</strong> to explore
+            configurations, test ideas, troubleshoot issues, and understand
+            how different components interact.
+          </p>
+
+          <p>
+            My projects cover cloud platforms, infrastructure as code,
+            monitoring, Active Directory, hybrid environments, and a
+            self-developed encryption application. They represent hands-on
+            learning and personal experimentation.
+          </p>
+
+          <div class="principle">
+            <p>
+              "Learn by doing.<br>
+              Improve by solving.<br>
+              Grow by building."
+            </p>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="fields">
-        <div class="field">
-          <div class="field-no">01</div>
+    <section class="section" id="expertise">
+      <div class="container">
+        <div class="section-heading">
           <div>
+            <div class="eyebrow">02 / Areas of focus</div>
+            <h2>What I work with.</h2>
+          </div>
+
+          <p>
+            A practical mix of infrastructure, cloud platforms, automation,
+            and security explored through personal projects and labs.
+          </p>
+        </div>
+
+        <div class="expertise-grid">
+          <article class="expertise-card">
+            <div class="expertise-number">FOCUS_01</div>
             <h3>Systems & IT Infrastructure</h3>
-            <p>Windows Server, Active Directory, Linux, DNS, DHCP, networking and hands-on L2/L3 troubleshooting practice.</p>
-          </div>
-          <div class="field-arrow">↗</div>
-        </div>
-        <div class="field">
-          <div class="field-no">02</div>
-          <div>
+            <p>
+              Windows Server, Active Directory, DNS, identity management,
+              networking fundamentals, and system administration labs.
+            </p>
+            <div class="tags">
+              <span>Windows Server</span>
+              <span>Active Directory</span>
+              <span>DNS</span>
+              <span>Networking</span>
+            </div>
+          </article>
+
+          <article class="expertise-card">
+            <div class="expertise-number">FOCUS_02</div>
             <h3>Cloud Engineering</h3>
-            <p>AWS, Azure and GCP labs covering infrastructure, IAM/RBAC, networking, storage, monitoring and backup.</p>
-          </div>
-          <div class="field-arrow">↗</div>
-        </div>
-        <div class="field">
-          <div class="field-no">03</div>
-          <div>
+            <p>
+              Building and exploring cloud infrastructure across major
+              providers, including resource configuration and access control.
+            </p>
+            <div class="tags">
+              <span>AWS</span>
+              <span>Azure</span>
+              <span>GCP</span>
+              <span>Terraform</span>
+            </div>
+          </article>
+
+          <article class="expertise-card">
+            <div class="expertise-number">FOCUS_03</div>
             <h3>DevOps & Automation</h3>
-            <p>Terraform, Docker, Kubernetes, Ansible, CI/CD workflows and repeatable infrastructure configuration.</p>
-          </div>
-          <div class="field-arrow">↗</div>
-        </div>
-        <div class="field">
-          <div class="field-no">04</div>
-          <div>
+            <p>
+              Experimenting with repeatable deployments, containers,
+              configuration management, and infrastructure monitoring.
+            </p>
+            <div class="tags">
+              <span>Docker</span>
+              <span>Ansible</span>
+              <span>CI/CD</span>
+              <span>Monitoring</span>
+            </div>
+          </article>
+
+          <article class="expertise-card">
+            <div class="expertise-number">FOCUS_04</div>
             <h3>Security & Development</h3>
-            <p>Security-focused learning and independent software development, including my file encryption application.</p>
-          </div>
-          <div class="field-arrow">↗</div>
+            <p>
+              Exploring security concepts, encryption, scripting, and
+              practical tooling through self-directed development projects.
+            </p>
+            <div class="tags">
+              <span>Python</span>
+              <span>AES-GCM</span>
+              <span>Linux</span>
+              <span>Security</span>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="projects">
-      <div class="section-head">
-        <div class="index">03 / SELECTED WORK</div>
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">03 / Selected work</div>
+            <h2>Built to understand.</h2>
+          </div>
+
+          <p>
+            Personal projects and lab environments created to practice,
+            experiment, troubleshoot, and learn by doing.
+          </p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project">
+            <div class="project-image-wrap">
+              <img class="project-image"
+                   src="https://msshift.com/images/cloud/architecture-diagram.png?v=gVg3hujYWzOHisjfbtUTddaxkpf8I5J8DNZhcaHPSeY"
+                   alt="Server infrastructure representing cloud and DevOps labs"
+                   loading="lazy">
+              <span class="project-index">PROJECT / 001</span>
+            </div>
+
+            <div class="project-content">
+              <div class="project-category">Cloud / Infrastructure</div>
+              <h3>Cloud & DevOps Homelab</h3>
+
+              <p>
+                A multi-cloud lab exploring infrastructure provisioning,
+                cloud services, access management, monitoring, and repeatable
+                deployment workflows using hands-on experiments.
+              </p>
+
+              <div class="tags">
+                <span>AWS</span>
+                <span>Azure</span>
+                <span>GCP</span>
+                <span>Terraform</span>
+                <span>Ansible</span>
+                <span>Docker</span>
+              </div>
+
+              <div class="project-footer">
+                <a class="project-link"
+                   href="https://github.com/darwin642/CLOUD-DEVOPS-HOMELAB"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                  View project <span aria-hidden="true">↗</span>
+                </a>
+                <span class="project-status">HANDS-ON LAB</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-image-wrap">
+              <img class="project-image"
+                   src="https://learn.microsoft.com/pt-br/windows-server/networking/media/core-network-guide/cng16_overview_2.jpg"
+                   alt="Homelab equipment and infrastructure"
+                   loading="lazy">
+              <span class="project-index">PROJECT / 002</span>
+            </div>
+
+            <div class="project-content">
+              <div class="project-category">Systems / Hybrid Lab</div>
+              <h3>HugeHomeLab</h3>
+
+              <p>
+                A personal lab for exploring Windows Server, Active Directory,
+                identity services, DNS, administration, and hybrid
+                infrastructure experiments.
+              </p>
+
+              <div class="tags">
+                <span>Windows Server</span>
+                <span>Active Directory</span>
+                <span>DNS</span>
+                <span>Hybrid</span>
+              </div>
+
+              <div class="project-footer">
+                <a class="project-link"
+                   href="https://github.com/darwin642/hugehomelab"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                  View GitHub <span aria-hidden="true">↗</span>
+                </a>
+                <span class="project-status">HANDS-ON LAB</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-image-wrap">
+              <img class="project-image"
+                   src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=900&q=80"
+                   alt="Code on a computer screen representing software development"
+                   loading="lazy">
+              <span class="project-index">PROJECT / 003</span>
+            </div>
+
+            <div class="project-content">
+              <div class="project-category">Development / Security</div>
+              <h3>CartmanView</h3>
+
+              <p>
+                A Python desktop application for encrypting, decrypting, and
+                viewing protected files. It combines AES-GCM authenticated
+                encryption with a custom CartmanCodec.
+              </p>
+
+              <div class="tags">
+                <span>Python</span>
+                <span>AES-GCM</span>
+                <span>Scrypt</span>
+                <span>Desktop App</span>
+              </div>
+
+              <div class="project-footer">
+                <a class="project-link"
+                   href="https://github.com/darwin642/cartmanview"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                  View project <span aria-hidden="true">↗</span>
+                </a>
+                <span class="project-status">PERSONAL PROJECT</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="approach">
+      <div class="container approach-grid">
         <div>
-          <h2>Built, tested,<br>documented.</h2>
-          <p class="intro">
-            Personal projects and lab environments where concepts
-            become practical experience.
+          <div class="eyebrow">04 / Working principle</div>
+          <h2>
+            Less guessing.<br>
+            More <span>understanding.</span>
+          </h2>
+        </div>
+
+        <div class="approach-copy">
+          <p>
+            Every lab is an opportunity to understand what happens behind the
+            scenes — how services communicate, where configurations fail,
+            and how infrastructure components depend on one another.
+          </p>
+
+          <p>
+            I value practical troubleshooting, clear documentation, and
+            steady improvement over simply collecting technologies or
+            memorizing commands.
           </p>
         </div>
       </div>
+    </section>
 
-      <div class="project-grid">
-        <a class="project" href="https://github.com/darwin642/CLOUD-DEVOPS-HOMELAB" target="_blank" rel="noopener noreferrer">
-          <div class="project-image">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=85" alt="Server racks in a data center">
-            <div class="image-label">PROJECT 001 / CLOUD</div>
-          </div>
-          <div class="project-content">
-            <div class="project-meta"><span>INFRASTRUCTURE LAB</span><span>01 — 03</span></div>
-            <h3>Cloud & DevOps Homelab</h3>
-            <p>Multi-cloud labs, Terraform-managed resources, containers, automation and monitoring experiments.</p>
-            <span class="project-link">VIEW REPOSITORY ↗</span>
-          </div>
-        </a>
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div>
+          <div class="eyebrow">05 / Get in touch</div>
 
-        <div class="project-stack">
-          <a class="project project-small" href="https://github.com/darwin642" target="_blank" rel="noopener noreferrer">
-            <div class="project-image">
-              <img loading="lazy" src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=85" alt="Abstract digital security visualization">
-              <div class="image-label">PROJECT 002 / SYSTEMS</div>
-            </div>
-            <div class="project-content">
-              <div class="project-meta"><span>WINDOWS / AD</span></div>
-              <h3>HugeHomeLab</h3>
-              <p>Windows Server, identity and infrastructure practice.</p>
-              <span class="project-link">EXPLORE LAB ↗</span>
-            </div>
+          <h2>
+            Let's make<br>
+            systems <span>work better.</span>
+          </h2>
+
+          <p class="contact-description">
+            I'm interested in opportunities where I can contribute, keep
+            learning, and grow through real technical challenges. Open to
+            international opportunities and employer-sponsored relocation.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary"
+               href="https://www.linkedin.com/in/kaanyasar3516/"
+               target="_blank"
+               rel="noopener noreferrer">
+              Connect on LinkedIn <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-links">
+          <a class="contact-link"
+             href="https://github.com/darwin642"
+             target="_blank"
+             rel="noopener noreferrer">
+            <span>GitHub</span>
+            <span aria-hidden="true">↗</span>
           </a>
 
-          <a class="project project-small" href="https://github.com/darwin642/cartmanview" target="_blank" rel="noopener noreferrer">
-            <div class="project-image">
-              <img loading="lazy" src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=85" alt="Code displayed on a computer screen">
-              <div class="image-label">PROJECT 003 / PYTHON</div>
-            </div>
-            <div class="project-content">
-              <div class="project-meta"><span>SOFTWARE PROJECT</span></div>
-              <h3>CartmanView</h3>
-              <p>My Python application for encryption, decryption and file viewing.</p>
-              <span class="project-link">VIEW PROJECT ↗</span>
-            </div>
+          <a class="contact-link"
+             href="https://www.linkedin.com/in/kaanyasar3516/"
+             target="_blank"
+             rel="noopener noreferrer">
+            <span>LinkedIn</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+
+          <a class="contact-link" href="#projects">
+            <span>Selected projects</span>
+            <span aria-hidden="true">↗</span>
           </a>
         </div>
       </div>
     </section>
-
-    <div class="principle">
-      <div class="index">04 / PRINCIPLE</div>
-      <blockquote>
-        Learn by doing.<br>
-        Improve by <span>solving.</span><br>
-        Grow by building.
-      </blockquote>
-    </div>
   </main>
-</div>
 
-<section class="contact" id="contact">
-  <div class="wrap">
-    <div class="contact-head">
-      <div>
-        <div class="kicker">05 / LET'S CONNECT</div>
-        <h2>Make things<br><span>work better.</span></h2>
-      </div>
-      <div class="contact-copy">
-        I'm interested in opportunities and projects related to systems
-        engineering, IT infrastructure, technical troubleshooting, cloud,
-        DevOps and automation.
-        <br><br>
-        Based in Türkiye · Open to international relocation and
-        employer-sponsored opportunities.
-      </div>
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-brand">KAAN <span>YAŞAR.</span></div>
+      <div>Built through curiosity and hands-on learning.</div>
+      <a class="back-top" href="#home">BACK TO TOP ↑</a>
     </div>
-
-    <div class="contact-links">
-      <a href="https://github.com/darwin642" target="_blank" rel="noopener noreferrer">GitHub <span>↗</span></a>
-      <a href="https://www.linkedin.com/in/kaanyasar3516/" target="_blank" rel="noopener noreferrer">LinkedIn <span>↗</span></a>
-      <a href="https://github.com/darwin642/CLOUD-DEVOPS-HOMELAB" target="_blank" rel="noopener noreferrer">Cloud Homelab <span>↗</span></a>
-      <a href="https://github.com/darwin642/cartmanview" target="_blank" rel="noopener noreferrer">CartmanView <span>↗</span></a>
-      <a href="https://github.com/darwin642" target="_blank" rel="noopener noreferrer">HugeHomeLab <span>↗</span></a>
-    </div>
-
-    <footer>
-      <span>© 2026 DARWIN642</span>
-      <span>INDEPENDENTLY BUILT · ALWAYS LEARNING</span>
-      <a href="#home">BACK TO TOP ↑</a>
-    </footer>
-  </div>
-</section>
+  </footer>
 </body>
 </html>
-```
