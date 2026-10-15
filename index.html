@@ -1,12 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0a1019">
-  <meta name="description" content="Kaan Yaşar — Personal portfolio focused on systems, cloud infrastructure, DevOps, automation, and security through hands-on projects.">
-
+  <meta name="description" content="Kaan Yaşar — Aspiring Systems and Cloud Engineer interested in IT infrastructure, cloud platforms, DevOps, automation, and security.">
   <title>Kaan Yaşar | Systems & Infrastructure</title>
 
   <style>
@@ -199,6 +197,10 @@
       white-space: nowrap;
     }
 
+    .nav-status .status-label {
+      color: #fff;
+    }
+
     .status-dot {
       width: 8px;
       height: 8px;
@@ -366,7 +368,7 @@
       background: var(--blue);
     }
 
-    /* About */
+    /* About Me */
 
     .about-grid {
       display: grid;
@@ -399,6 +401,12 @@
     .about-copy strong {
       color: var(--text);
       font-weight: 700;
+    }
+
+    .about-copy .about-intro {
+      color: var(--text);
+      font-size: 18px;
+      line-height: 1.85;
     }
 
     .principle {
@@ -1003,7 +1011,7 @@
 
       <nav aria-label="Main navigation">
         <ul class="nav-links">
-          <li><a href="#about">About</a></li>
+          <li><a href="#about">About Me</a></li>
           <li><a href="#expertise">Expertise</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
@@ -1011,10 +1019,10 @@
       </nav>
 
       <div class="nav-status">
-  <span style="color: #fff;">Status:</span>
-  <span class="status-dot" aria-hidden="true"></span>
-  OPEN TO OPPORTUNITIES
-</div>
+        <span class="status-label">Status:</span>
+        <span class="status-dot" aria-hidden="true"></span>
+        <span>OPEN TO OPPORTUNITIES</span>
+      </div>
     </div>
   </header>
 
@@ -1074,36 +1082,53 @@
       </div>
     </section>
 
+    <!-- ABOUT ME -->
     <section class="section" id="about">
       <div class="container about-grid">
         <div>
-          <div class="about-label">01 / THE APPROACH</div>
+          <div class="about-label">01 / ABOUT ME</div>
           <h2 class="about-title">
-            Understand the system.<br>
-            <span class="blue">Solve the problem.</span>
+            Curious about how<br>
+            <span class="blue">systems work.</span>
           </h2>
         </div>
 
         <div class="about-copy">
-          <p>
-            I'm focused on understanding how systems work in real environments
-            — from Windows Server and networking to cloud infrastructure,
-            automation, and security.
+          <p class="about-intro">
+            I'm Kaan, an aspiring Systems and Cloud Engineer based in Türkiye,
+            interested in the technology that keeps systems and infrastructure
+            running.
           </p>
 
           <p>
-            Rather than relying on theory alone, I build
-            <strong>personal labs and practical projects</strong> to explore
-            configurations, test ideas, troubleshoot issues, and understand
-            how different components interact.
+            My main interests are <strong>IT infrastructure, networking,
+            cloud engineering, DevOps, automation, and security.</strong>
+            I enjoy understanding how services communicate, how infrastructure
+            is configured, and how technical problems can be investigated
+            instead of simply guessing at a fix.
           </p>
 
           <p>
-            My projects cover cloud platforms, infrastructure as code,
-            monitoring, Active Directory, hybrid environments, and a
-            self-developed encryption application. They represent hands-on
-            learning and personal experimentation.
+            I build personal labs and independent projects to turn what I
+            learn into practical experience. My work includes Windows Server
+            and Active Directory environments, AWS/Azure/GCP labs, Terraform,
+            container and monitoring experiments, and CartmanView — my own
+            Python-based file encryption and decryption application.
           </p>
+
+          <p>
+            I'm continuously developing my skills and looking for an
+            opportunity to contribute, learn from real-world challenges,
+            and grow as an engineer. I'm based in Türkiye and open to
+            international opportunities with employer-sponsored relocation.
+          </p>
+
+          <div class="tags">
+            <span>Hands-on Learning</span>
+            <span>Troubleshooting</span>
+            <span>Infrastructure</span>
+            <span>Automation</span>
+          </div>
 
           <div class="principle">
             <p>
@@ -1213,7 +1238,7 @@
             <div class="project-image-wrap">
               <img class="project-image"
                    src="https://msshift.com/images/cloud/architecture-diagram.png?v=gVg3hujYWzOHisjfbtUTddaxkpf8I5J8DNZhcaHPSeY"
-                   alt="Server infrastructure representing cloud and DevOps labs"
+                   alt="Cloud infrastructure architecture diagram"
                    loading="lazy">
               <span class="project-index">PROJECT / 001</span>
             </div>
@@ -1253,7 +1278,7 @@
             <div class="project-image-wrap">
               <img class="project-image"
                    src="https://learn.microsoft.com/pt-br/windows-server/networking/media/core-network-guide/cng16_overview_2.jpg"
-                   alt="Homelab equipment and infrastructure"
+                   alt="Windows Server network topology with domain services and network clients"
                    loading="lazy">
               <span class="project-index">PROJECT / 002</span>
             </div>
